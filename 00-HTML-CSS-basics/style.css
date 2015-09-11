@@ -1,0 +1,64 @@
+/* Table Expenses */
+table, td, th {
+    border: 1px solid black;
+    font-family: comic;
+}
+/* Table Expenses */
+
+body{
+	font-size: 14px;
+	font-family: fantasy;
+}
+
+.header, .footer, .sidebar, .navigation{
+	background-color: #00FFFF;
+}
+
+.header, .footer{
+	text-align: center;
+}
+
+.header{
+	font-size: 46px;
+}
+
+.footer{
+	font-size: 10px;
+}
+
+.content{
+	font-size: 14px; 
+}
+
+.navigation{
+	font-size: 12px;
+}
+
+.sidebar{
+	font-size: 10px; 	
+}
+
+/* *[class$='r']{  header, footer, sidebar : class attribute finishes with 'r' */
+.header, .footer, .sidebar{	
+	background-color: #FF00FF;
+}
+
+/* *[class*='a']:not(*[class$='r']){  navigation : class attribute contains an a (example nav) but do NOT finish with r */
+.navigation{
+	background-color: #0000FF;
+}
+
+/*  
+
+2.3.7 - Imagine there is a declaration like class=”oh-no-inline-styles” style=”background:red” and 
+you need to change the background to green without changing the inline style. 
+How could you accomplish this? 
+
+HTML
+example : <element class="oh-no-inline-styles" style="background:red"></element>;
+
+CSS 
+.oh-no-inline-styles{ background:green;}
+
+*/
+

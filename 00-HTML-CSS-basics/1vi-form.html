@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Form </title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Lucio Mambrilla">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+	<h1>User Form</h1>
+	<form>
+		<h3>First Name:</h3>
+			<input type="text" maxlength="20" required> 
+		<h3>Last Name:</h3>
+			<input type="text" maxlength="30" required> 
+		<h3>Email:</h3>
+			<input type="email" required>
+		<h3>Birthday:</h3>
+			<input type="text" placeholder="mm/dd/yyyy" required/>
+		<h3>Favourite Sport:</h3>
+			<select required>
+				<option value="Fútbol">Fútbol</option>
+				<option value="Voley">Voley</option>
+				<option value="Handball">Handball</option>
+				<option value="Swimming">Swimming</option>
+			</select>
+		<h3>Bio:</h3>
+			<textarea rows="3" cols="50" placeholder="Write a little bio.." required></textarea>
+		<br>
+		<input type="submit" value="Submit">
+		<input type="submit" value="Clear">
+	</form>
+</body>
+</html>
+<!-- Validate in W3C Validator : https://validator.w3.org --> 

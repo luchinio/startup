@@ -1,0 +1,15 @@
+section{
+	text-align: center;
+}
+
+.sectionHidden{	
+	visibility: hidden;
+}
+
+.sectionBootstrap{
+	float: left;
+}
+
+.spotify{
+	float: right;
+}
