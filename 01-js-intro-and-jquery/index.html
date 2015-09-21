@@ -26,11 +26,19 @@
 		</section>
 		<script type="text/javascript">
 			function getName(response){
+				/*
+				* What happens if the user don't put any value?	
+				* Uncaught TypeError: Cannot read property 'substring' of undefined
+				*/
 				return response.substring(8, response.length-1);
 			}
 
 	 		function getReleaseDate(url){
 			    var result;
+			    /*
+				* Why you set up the property async in false? 
+				* Did you understand the meaning fo the value async?
+			    */
 			    $.ajax({
 			    	async: false,
 			    	url: url,

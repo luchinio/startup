@@ -2,7 +2,8 @@ section{
 	text-align: center;
 }
 
-.sectionHidden{	
+.sectionHidden{
+	/* what is the difference between display and visibility ? */
 	visibility: hidden;
 }
 
