@@ -6,18 +6,19 @@
 		<meta name="author" content="Lucio Mambrilla">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="normalize.css">			
+		<link rel="stylesheet" type="text/css" href="normalize.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
-	</head>	
+		<!-- this stylesheet you must need definited before your stylesheet, in order to reset the values you need to customizde -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	</head>
 	<body>
 		<div class="sectionBootstrap">
-			<h2>Insert your name in the input to call Bootstrap with it !</h2>				
+			<h2>Insert your name in the input to call Bootstrap with it !</h2>
 			<section class="sectionHidden">Hello world</section>
-			<input type="text" class="alias"/>		
+			<input type="text" class="alias"/>
 			<button class="callBootstrap">Button</button>
 		</div>
-					
+
 		<section class="spotify">
 			<h3>Spotify Section</h3>
 			<input type="text" class="artist"/>
@@ -26,72 +27,86 @@
 		</section>
 		<script type="text/javascript">
 			function getName(response){
+				/*
+				* What happens if the user don't put any value?	
+				* Uncaught TypeError: Cannot read property 'substring' of undefined
+				*/
 				return response.substring(8, response.length-1);
 			}
 
 	 		function getReleaseDate(url){
-			    var result;						   						   
-			    $.ajax({ 			    				    
+			    var result;
+			    /*
+				* Why you set up the property async in false? 
+				* Did you understand the meaning fo the value async?
+			    */
+			    $.ajax({
 			    	async: false,
 			    	url: url,
 			    	success: function (response) {
 						result = response.release_date;
 					},
-					failure: function () {						
+					failure: function () {
 						result = 'We could not find the release date.';
 					}
-				}); 			   
+				});
 			 	return result;
-			} 
+			}
 
-			$(document).ready(function() {		    
+			$(document).ready(function() {
+					/**
+			     * Why do this ?
+			     * Use css to apply look and feel.
+			     * CSS - Read about the differences between visibility and display properties
+			     * jQuery effects - Read about differences between show / hide and fadeIn / fadeOut
+			     */
 			    $('.sectionHidden').css('visibility','visible').hide().fadeIn('slow');
 			    $('.alias').focus();
 			    $('.callBootstrap').click(function(){
 		    		$.ajax('http://bootcamp.aws.af.cm/welcome/'+$('.alias').val())
-					.done(function(data) {					
-						$('.sectionHidden').html(data.response);					
+					.done(function(data) {
+						$('.sectionHidden').html(data.response);
 						var resp = getName(data.response);
-					    $('.sectionHidden').html('<p>Welcome <mark>'+resp+'</mark>!</p>');					
+					    $('.sectionHidden').html('<p>Welcome <mark>'+resp+'</mark>!</p>');
 					})
 					.fail(function() {
 						$('.sectionHidden').css('color','red'); //change the section color to red
 					})
 					.always(function() {
 						$('.alias').val(''); // clear the input
-					});			
-			    });		  
+					});
+			    });
 
 			    $('.callSpotify').click(function(){
 			    	var divSpotify = $('.listAlbums').html('');
-			    	$.ajax({  //https://api.spotify.com/v1/search?q=clapton&type=album 
-					  url: 'https://api.spotify.com/v1/search?q='+$('.artist').val()+'&type=album',				  
+			    	$.ajax({  //https://api.spotify.com/v1/search?q=clapton&type=album
+					  url: 'https://api.spotify.com/v1/search?q='+$('.artist').val()+'&type=album',
 	                  dataType: 'json'
 					}).done(function(data) {
 					  var albums = data.albums.items;
-					  if(albums.length !== 0){				  	
+					  if(albums.length !== 0){
 					  	for(var album in albums)
-						{		
+						{
 						 	var name = albums[album].name;
 			    	 		var type = albums[album].type;
 					     	var image = albums[album].images[0].url;
 					     	var url = albums[album].external_urls.spotify;
-							var release_date = getReleaseDate(albums[album].href);				    
+							var release_date = getReleaseDate(albums[album].href);
 					     	divSpotify.append( //name, type, image, release_date, and a link to spotify for that album
-					     		'<article class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title">'+name+'</h3></div><div class="panel-body"><h4>'+type+'</h4><h4>'+release_date+'</h4><img src="'+image+'" style="width:50%;" alt="'+name+'Image"><h4><a href="'+url+'" target="_blank">Go to de album!</a></h4></div></article>'						  	
+					     		'<article class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title">'+name+'</h3></div><div class="panel-body"><h4>'+type+'</h4><h4>'+release_date+'</h4><img src="'+image+'" style="width:50%;" alt="'+name+'Image"><h4><a href="'+url+'" target="_blank">Go to de album!</a></h4></div></article>'
 						  	);
-						}	
+						}
 					  }
 					  else{
 					  	divSpotify.html('We could not find the artist entered, please try again.' );
-					  }				  				  				  
+					  }
 					})
 					.fail(function() {
 						divSpotify.html('We could not find the artist entered, please try again.' );
-					});		    
+					});
 			    });
-			});	
+			});
 		</script>
-	</body>	
+	</body>
 </html>
-<!-- Validate using W3C validator : https://validator.w3.org --> 
+<!-- Validate using W3C validator : https://validator.w3.org -->
