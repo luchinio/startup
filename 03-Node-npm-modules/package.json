@@ -1,0 +1,28 @@
+{
+  "name": "topic-node-npm-modules",
+  "version": "1.0.0",
+  "description": "Node and npm Modules",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luchinio/startup.git"
+  },
+  "keywords": [
+    "Node",
+    "npm",
+    "modules",
+    "bootcamp"
+  ],
+  "author": "Lucio Mambrilla Cimillo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luchinio/startup/issues"
+  },
+  "dependencies": {
+    "jquery": "^2.1.4"
+  },
+  "homepage": "https://github.com/luchinio/startup#readme"
+}
