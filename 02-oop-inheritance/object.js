@@ -18,7 +18,7 @@ var Movie = (function(){
         },
         //Hashmap's methods
         set:function(attr,value)  {
-            this.hashmap[attr] = value;        
+            this.hashmap[attr] = value;
         },
         get:function(attr)  {
             return this.hashmap[attr];
@@ -34,6 +34,9 @@ var Movie = (function(){
                 delete this.hashmap[i];
             }
         },
+        /*
+        * be carful with the reserved word. Length function returns the number of storage units in the string's internal buffer
+         */
         length:function(){
             var count =0;
             for(i in this.hashmap){
@@ -81,11 +84,11 @@ var Movie = (function(){
 function ObserverList(){
   this.observerList = [];
 };
- 
+
 ObserverList.prototype = {
     add:function( obj ){
         return this.observerList.push( obj );
-    }, 
+    },
     count:function(){
         return this.observerList.length;
     },
@@ -94,14 +97,18 @@ ObserverList.prototype = {
         return this.observerList[ index ];
         }
     },
+    /*
+    * be carful with the reserved word. The indexOf() method returns the index within the calling String object of the first occurrence of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
+     */
     indexOf:function( obj, startIndex ){
-        var i = startIndex; 
+       /* This method is no used */
+        var i = startIndex;
         while( i < this.observerList.length ){
             if( this.observerList[i] === obj ){
               return i;
             }
             i++;
-        } 
+        }
         return -1;
     },
     removeAt:function( index ){
@@ -130,7 +137,7 @@ MovieObserver.prototype = {
     },
     removeAt:function( index ){
         return this.observersList.removeAt(index);
-    }, 
+    },
     update:function(action, name){
         console.log(action + name + '...');
     },
@@ -154,7 +161,7 @@ var DownloadableMovie = (function(){
     DownloadableMovie.prototype = Object.create(Movie.prototype)
 
     DownloadableMovie.prototype.download = function(){
-        this.notify('Downloading ', this.get('title'));        
+        this.notify('Downloading ', this.get('title'));
     }
 
     /* Why not?
@@ -164,13 +171,13 @@ var DownloadableMovie = (function(){
             this.notify('Downloading ' + this.get('title'));
         }
     }
-    */ 
+    */
 
     return DownloadableMovie;
 
 })();
 
- 
+
 // Mixins : Social
 var Social = {
     share: function(friendName){
@@ -181,9 +188,10 @@ var Social = {
     }
 }
 
-/* Extends Social mixin to Movie Class , use function from : 
+/* Extends Social mixin to Movie Class , use function from :
 http://blog.brillskills.com/2013/09/javascript-subclassing-using-object-create/ */
 
+// You understand how this works ?? Never is a good idea copy and paste, without understanding the behavior of the script.
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -220,7 +228,7 @@ var Actor = (function(){
 })();
 
 
-/* 
+/*
 
 Biblilography:
 
@@ -231,7 +239,7 @@ Biblilography:
 */
 
 
-/* Old Movie Class 
+/* Old Movie Class
 
 function Movie(){
     this.hashmap = {};
@@ -250,7 +258,7 @@ Movie.prototype = {
     },
     //Hashmap's methods
     set:function(attr,value)  {
-        this.hashmap[attr] = value;        
+        this.hashmap[attr] = value;
     },
     get:function(attr)  {
         return this.hashmap[attr];
