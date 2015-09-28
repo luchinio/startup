@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-heading">List Movies</div>
+  <table class="table">
+    <thead>
+      <tr>
+       <th> Movie Title</th>
+	  	<th> Director</th>
+	  	<th> Genre</th>
+	  	<th> Year</th>
+	  	<th> Review</th>
+	  	<th> Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="movie in movies">
+		  	<td><a ng-href="#movie/{{$index}}" style="cursor: pointer;">{{movie.title}}</a></td>
+		  	<td> {{ movie.director }} </td>
+		  	<td> {{ movie.genre }} </td>
+		  	<td> {{ movie.year }} </td>
+		  	<td> {{ movie.review }} </td>
+		  	<td> 
+		  		<a ng-href="#movie/{{$index}}" style="cursor: pointer;"><span class="glyphicon glyphicon-pencil"></span></a>
+          <a ng-click="deleteMovie($index)" style="cursor: pointer;"><span class="glyphicon glyphicon-trash"></span></a>
+        </td>
+	  	</tr>	
+    </tbody>
+  </table>
+</div>
+

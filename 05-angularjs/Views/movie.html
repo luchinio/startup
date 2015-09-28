@@ -1,0 +1,41 @@
+<form class="form-horizontal" style="width:60%;" name="movieForm">
+  <div class="form-group">
+    <label for="title" class="col-sm-2 control-label">Title</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="title" placeholder="Title" ng-model="movie.title" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="director" class="col-sm-2 control-label">Director</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="director" placeholder="Director" ng-model="movie.director">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="genre" class="col-sm-2 control-label">Genre</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="genre" placeholder="Genre" ng-model="movie.genre" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="year" class="col-sm-2 control-label">Year</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="year" placeholder="Release Date" ng-model="movie.year">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="review" class="col-sm-2 control-label">Review</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="review" placeholder="Review" ng-model="movie.review">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="button" class="btn btn-default" ng-click="addMovie(movie)" ng-show="movieId ? false : true">Add</button>
+      <button type="button" class="btn btn-default" ng-click="editMovie($scope.movieId,movie)" ng-show="movieId ? true : false">Edit</button>
+      <a type="button" class="btn btn-default" ng-href="#movies">Cancel</a>
+    </div>
+  </div>
+</form>
+
+          

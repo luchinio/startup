@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<title> Angular Topic </title>
+	</head>
+	<body ng-app="appConfig">
+		<nav class="navbar navbar-default">
+	        <div class="container-fluid">
+	        	<div class="navbar-header">
+	            	<a class="navbar-brand" href="#movies">Angular Topic</a>
+	          	</div>
+	          	<div id="navbar" class="navbar-collapse collapse" ng-controller="HeaderController">
+	            	<ul class="nav navbar-nav">	              
+		              <li ng-class="{ active: isActive('/movies')}"><a href="#movies">List</a></li>
+	        		  <li ng-class="{ active: isActive('/movie')}"><a href="#movie">New</a></li>
+		            </ul>	          
+	          	</div>
+	        </div>
+      	</nav>
+		<div class="jumbotron">	       
+	    	<div ng-view></div>
+	    </div>
+ 
+		<script src="node_modules/angular/angular.min.js"></script>	
+		<script src="node_modules/angular-route/angular-route.min.js"></script>
+		<script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
+		<script src="node_modules/ngStorage/ngStorage.min.js"></script>
+		<script src="js/app/service.js"></script>
+		<script src="js/app/movie.js"></script>
+		<script src="js/app/app.js"></script>
+	</body>
+</html>
+                    
