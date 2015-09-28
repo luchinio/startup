@@ -1,16 +1,20 @@
+//Why do this ?
+//You require this modulo in the bundle.js
 require('./movie.js');
 
 var Director= (function ()
 {
 	function Director(name)
-	{
+	{       
         this.name = name;
         this.hashmap = {};
 		this.quotes= [];
 	};
-
+    //be careful you're treading the prototype.
 	Director.prototype =
 	{
+        //this is redundant
+        //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor 
 		constructor: Director,
         //Hashmap's methods
         set:function(attr,value)  {
@@ -58,5 +62,6 @@ var Director= (function ()
 
 	return Director;
 })();
-
+// if you pay attention, you can do this in the same line. Assigning to module.exports your anonymus function.
+// E.g modules.exports = (function (){....})();
 module.exports = Director;
