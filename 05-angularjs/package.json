@@ -1,0 +1,23 @@
+{
+  "name": "05-angularjs",
+  "version": "1.0.0",
+  "description": "Angularjs Topic",
+  "main": "index.html",
+  "dependencies": {
+    "angular": "^1.4.6",
+    "angular-mocks": "^1.4.6",
+    "angular-route": "^1.4.6",
+    "karma": "^0.13.10",
+    "ngstorage": "^0.3.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luchinio/startup/tree/master/05-angularjs"
+  },
+  "author": "Lucio Mambrilla Cimillo",
+  "license": "ISC",
+  "keywords": [
+    "Angularjs",
+    "Topic"
+  ]
+}
