@@ -13,7 +13,9 @@
     </thead>
     <tbody>
       <tr ng-repeat="movie in movies">
-		  	<td><a ng-href="#movie/{{$index}}" style="cursor: pointer;">{{movie.title}}</a></td>
+		  	<td>
+		  	<!--Why use sytle inline ??? element <a> by defult is a pointer-->
+		  	<a ng-href="#movie/{{$index}}" style="cursor: pointer;">{{movie.title}}</a></td>
 		  	<td> {{ movie.director }} </td>
 		  	<td> {{ movie.genre }} </td>
 		  	<td> {{ movie.year }} </td>
