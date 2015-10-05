@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title> HTML5 API's Topic </title>
+	</head>
+	<body ng-app="appConfig">
+		<div class="jumbotron" ng-controller="dataController">	 
+			<h1> LocalStorage</h1>      	    	
+	    	<textarea ng-model="data"></textarea>	    	
+	    	<button type="button" ng-click='saveData(data); data = null;'> Save textarea data</button>   
+    		<button type="button" ng-click='clearData();'> Clear data</button>
+
+    		<ul>
+	            <li ng-repeat="item in dataDB">
+	                {{item}}
+	            </li>
+	        </ul>
+	    </div>
+
+	    <div class="jumbotron" ng-controller="indexedDBController">	 
+	    	<h1> IndexedDB</h1>      	    	      
+	    	<textarea ng-model="data"></textarea>
+	    	<button type="button" ng-click='saveData(data); data = null;'> Save textarea data</button>    		
+    		<button type="button" ng-click='clearData();'> Clear data</button>
+
+    		<ul>
+	            <li ng-repeat="item in dataDB">
+	                {{item}}
+	            </li>
+	        </ul>
+	    </div>
+
+	    <div class="jumbotron">	 
+	    	<h1> Drag and Drop</h1>      	    	      
+	    	<article>
+			  <div id="holder"></div> 
+			  <p id="status">File API & FileReader API not supported</p>
+			  <p>Drag a text file from your desktop on to the drop zone above to see the browser read the contents of the file - without uploading the file to any servers.</p>
+			</article>
+	    </div>
+
+	    <div class="jumbotron">	 
+	    	<h1> Canvas</h1>      	    	      
+	    	<article>
+			  <canvas id="canvasElement" width="578" height="200"></canvas>
+			</article>
+	    </div>
+
+	    <script src="node_modules/angular/angular.min.js"></script>	
+		<script src="node_modules/mootools/lib/mootools-core-1.5.2-server.js"></script>
+		<script src="node_modules/ngStorage/ngStorage.min.js"></script>	
+		<script src="js/app/app.js"></script>
+		<script src="js/app/dragAndDrop.js"></script>
+		<script src="js/app/canvas.js"></script>
+	</body>
+</html>
+                    

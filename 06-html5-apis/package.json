@@ -1,0 +1,21 @@
+{
+  "name": "06-html5-apis",
+  "version": "1.0.0",
+  "description": "HTML5 API's Topic",
+  "main": "index.html",
+  "dependencies": {
+    "mootools": "^1.5.2",
+    "angular": "^1.4.6",
+    "ngstorage": "^0.3.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luchinio/startup/tree/master/06-html5-apis"
+  },
+  "keywords": [
+    "HTML5",
+    "API's"
+  ],
+  "author": "Lucio Mambrilla Cimillo",
+  "license": "ISC"
+}
